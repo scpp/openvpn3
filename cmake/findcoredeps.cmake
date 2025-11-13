@@ -125,11 +125,11 @@ function(add_corelibrary_dependencies target)
     # asio should go first since some of our code requires
     # a patched version. So we want to prefer its include
     # directories.
-    find_package(asio REQUIRED)
-    target_link_libraries(${target} asio::asio)
+    #find_package(asio REQUIRED)
+    #target_link_libraries(${target} asio::asio)
 
-    find_package(lz4 REQUIRED)
-    target_link_libraries(${target} lz4::lz4)
+    #find_package(lz4 REQUIRED)
+    #target_link_libraries(${target} lz4::lz4)
 
     add_ssl_library(${target})
 
@@ -141,7 +141,7 @@ function(add_corelibrary_dependencies target)
         target_link_libraries(${target} ${coreFoundation} ${iokit} ${coreServices} ${systemConfiguration} ${lz4})
     endif()
 
-    if(UNIX)
+    if(UNIX AND NOT ANDROID)
         target_link_libraries(${target} pthread)
     endif()
 
