@@ -138,7 +138,7 @@ function(add_corelibrary_dependencies target)
         find_library(iokit IOKit)
         find_library(coreServices CoreServices)
         find_library(systemConfiguration SystemConfiguration)
-        target_link_libraries(${target} ${coreFoundation} ${iokit} ${coreServices} ${systemConfiguration} ${lz4})
+        target_link_libraries(${target} ${coreFoundation} ${iokit} ${coreServices} ${systemConfiguration})
     endif()
 
     if(UNIX AND NOT ANDROID)
